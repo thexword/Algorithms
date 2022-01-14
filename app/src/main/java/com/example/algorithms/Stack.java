@@ -1,5 +1,5 @@
-/*
- Pushdown stack (linked-list implementation)
+/**
+ * Pushdown stack (linked-list implementation)
  */
 package com.example.algorithms;
 

@@ -1,5 +1,5 @@
-/*
- PushDown(LIFO) stack (resizing array implementation)
+/**
+ * PushDown(LIFO) stack (resizing array implementation)
  */
 
 package com.example.algorithms;
