@@ -3,7 +3,11 @@
  */
 package com.example.algorithms;
 
-public class Stack<Item> {
+import androidx.annotation.NonNull;
+
+import java.util.Iterator;
+
+public class Stack<Item> implements Iterable<Item> {
     private class Node {
         Item item;
         Node next;
@@ -13,7 +17,7 @@ public class Stack<Item> {
     private int N;
 
     public boolean isEmpty() {
-        return N == 0;
+        return null == first;
     }
 
     public int size() {
@@ -29,9 +33,35 @@ public class Stack<Item> {
     }
 
     public Item pop() {
+        if (null == first) {
+            return null;
+        }
+
         Item item = first.item;
         first = first.next;
         N--;
         return item;
+    }
+
+    @NonNull
+    @Override
+    public Iterator<Item> iterator() {
+        return new ListIterator();
+    }
+
+    private class ListIterator implements Iterator<Item> {
+        private Node current = first;
+
+        @Override
+        public boolean hasNext() {
+            return current != null;
+        }
+
+        @Override
+        public Item next() {
+            Item item = current.item;
+            current = current.next;
+            return item;
+        }
     }
 }
