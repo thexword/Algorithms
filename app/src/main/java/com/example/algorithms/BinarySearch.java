@@ -5,7 +5,7 @@
 package com.example.algorithms;
 
 public class BinarySearch {
-    public int rank(int key, int[] a) {
+    public static int rank(int key, int[] a) {
         if (null == a || a.length == 0) {
             return -1;
         }
