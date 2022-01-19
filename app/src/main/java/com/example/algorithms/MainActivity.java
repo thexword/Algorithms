@@ -22,11 +22,12 @@ public class MainActivity extends AppCompatActivity {
                 3, 5, 8, 6, 2, 1, 9, 6
         };
 
-        Merge.sort(a);
+        Log.d(TAG, "test1");
+        Merge.sort_top_down(a);
         Merge.show(a);
 
-        Log.d(TAG, "test");
-        Shell.sort(a);
-        Shell.show(a);
+        Log.d(TAG, "test2");
+        Merge.sort_bottom_up(a);
+        Merge.show(a);
     }
 }
