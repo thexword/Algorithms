@@ -2,7 +2,7 @@
  * Union-Find
  */
 
-package com.example.algorithms.datastructure;
+package com.example.algorithms.datastructures;
 
 public class WeightedQuickUnionUF {
     private int[] id; // access to component id (site indexed)

@@ -2,7 +2,7 @@
  * Pushdown stack (linked-list implementation)
  */
 
-package com.example.algorithms.datastructure;
+package com.example.algorithms.datastructures;
 
 import androidx.annotation.NonNull;
 
