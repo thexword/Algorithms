@@ -2,7 +2,7 @@
  * PushDown(LIFO) stack (resizing array implementation)
  */
 
-package com.example.algorithms;
+package com.example.algorithms.datastructure;
 
 import androidx.annotation.NonNull;
 

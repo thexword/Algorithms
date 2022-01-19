@@ -1,21 +1,20 @@
 /**
- * FIFO queue
+ * Pushdown stack (linked-list implementation)
  */
 
-package com.example.algorithms;
+package com.example.algorithms.datastructure;
 
 import androidx.annotation.NonNull;
 
 import java.util.Iterator;
 
-public class Queue<Item> implements Iterable<Item> {
+public class Stack<Item> implements Iterable<Item> {
     private class Node {
         Item item;
         Node next;
     }
 
     private Node first;
-    private Node last;
     private int N;
 
     public boolean isEmpty() {
@@ -26,33 +25,21 @@ public class Queue<Item> implements Iterable<Item> {
         return N;
     }
 
-    public void enqueue(Item item) {
-        Node oldLast = last;
-        last = new Node();
-        last.item = item;
-        last.next = null;
-
-        if (isEmpty()) {
-            first = last;
-        } else {
-            oldLast.next = last;
-        }
-
+    public void push(Item item) {
+        Node oldFirst = first;
+        first = new Node();
+        first.item = item;
+        first.next = oldFirst;
         N++;
     }
 
-    public Item dequeue() {
+    public Item pop() {
         if (null == first) {
             return null;
         }
 
         Item item = first.item;
         first = first.next;
-
-        if (isEmpty()) {
-            last = null;
-        }
-
         N--;
         return item;
     }

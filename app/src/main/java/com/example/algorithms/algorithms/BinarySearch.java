@@ -2,7 +2,7 @@
  * Binary search (Loop implementation)
  */
 
-package com.example.algorithms;
+package com.example.algorithms.algorithms;
 
 public class BinarySearch {
     public static int rank(int key, int[] a) {
