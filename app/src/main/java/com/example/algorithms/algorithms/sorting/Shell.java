@@ -18,9 +18,9 @@ public class Shell extends Sort {
                 for (int j = i; j >= step && less(a[j], a[j - step]); j -= step) {
                     exch(a, j, j - step);
                 }
-
-                step /= 3;
             }
+
+            step /= 3;
         }
     }
 }
