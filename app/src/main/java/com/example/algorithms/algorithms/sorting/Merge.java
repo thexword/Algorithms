@@ -5,7 +5,7 @@
 package com.example.algorithms.algorithms.sorting;
 
 public class Merge extends Sort {
-    private static Comparable[] aux; // auxiliary array for merges (must be static!)
+    private static Comparable[] aux; // auxiliary array for merges (must be static to be used in static methods!)
 
     public static void sort_top_down(Comparable[] a) {
         int N = a.length;
