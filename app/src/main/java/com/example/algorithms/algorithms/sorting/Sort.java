@@ -30,8 +30,14 @@ public abstract class Sort {
     }
 
     public static void show(Comparable[] a) {
+        Log.d(TAG, "length: " + a.length);
+
+        StringBuilder sb = new StringBuilder();
+
         for (int i = 0; i < a.length; ++i) {
-            Log.d(TAG, a[i] + " ");
+            sb.append(a[i]).append(" ");
         }
+
+        Log.d(TAG, sb.toString());
     }
 }

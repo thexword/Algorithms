@@ -7,6 +7,7 @@ import android.util.Log;
 
 import com.example.algorithms.algorithms.sorting.Insertion;
 import com.example.algorithms.algorithms.sorting.Merge;
+import com.example.algorithms.algorithms.sorting.Quick;
 import com.example.algorithms.algorithms.sorting.Selection;
 import com.example.algorithms.algorithms.sorting.Shell;
 
@@ -19,15 +20,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Integer[] a = new Integer[] {
-                3, 5, 8, 6, 2, 1, 9, 6
+                3, 5, 8, 6, 2, 1, 9, 6,
         };
 
-        Log.d(TAG, "test1");
-        Merge.sort_top_down(a);
-        Merge.show(a);
-
-        Log.d(TAG, "test2");
-        Merge.sort_bottom_up(a);
-        Merge.show(a);
+        Log.d(TAG, "test quick");
+        Quick.sort(a);
+        Quick.show(a);
     }
 }
