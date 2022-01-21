@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         };
 
         Log.d(TAG, "test quick");
-        Quick.sort(a);
+        Quick.sort_three_way(a);
         Quick.show(a);
     }
 }

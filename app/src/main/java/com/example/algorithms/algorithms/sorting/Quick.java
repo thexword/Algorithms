@@ -19,7 +19,12 @@ public class Quick extends Sort {
         sort(a, 0, a.length - 1);
     }
 
-    public static void sort(Comparable[] a, int lo, int hi) {
+    public static void sort_three_way(Comparable[] a) {
+        shuffleArray(a);
+        sort_three_way(a, 0, a.length - 1);
+    }
+
+    private static void sort(Comparable[] a, int lo, int hi) {
         if (lo >= hi) {
             return;
         }
@@ -27,6 +32,32 @@ public class Quick extends Sort {
         int j = partition(a, lo, hi);
         sort(a, lo, j - 1);
         sort(a, j + 1, hi);
+    }
+
+    private static void sort_three_way(Comparable[] a, int lo, int hi) {
+        if (lo >= hi) {
+            return;
+        }
+
+        Comparable v = a[lo];
+        int lt = lo;
+        int i = lo + 1;
+        int gt = hi;
+
+        while (i <= gt) {
+            int cmp = a[i].compareTo(v);
+
+            if (cmp < 0) {
+                exch(a, lt++, i++);
+            } else if (cmp > 0) {
+                exch(a, i, gt--);
+            } else {
+                i++;
+            }
+        }
+
+        sort_three_way(a, lo, lt - 1);
+        sort_three_way(a, gt + 1, hi);
     }
 
     public static int partition(Comparable[] a, int lo, int hi) {
