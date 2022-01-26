@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
                 3, 5, 8, 6, 2, 1, 9, 6,
         };
 
-        Log.d(TAG, "test quick");
+        Log.d(TAG, "test heap");
         HeapSort.sort(a);
         HeapSort.show(a);
     }
