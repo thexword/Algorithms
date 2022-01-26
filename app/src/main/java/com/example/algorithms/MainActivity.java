@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.example.algorithms.algorithms.sorting.HeapSort;
 import com.example.algorithms.algorithms.sorting.Insertion;
 import com.example.algorithms.algorithms.sorting.Merge;
 import com.example.algorithms.algorithms.sorting.Quick;
@@ -24,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         };
 
         Log.d(TAG, "test quick");
-        Quick.sort_three_way(a);
-        Quick.show(a);
+        HeapSort.sort(a);
+        HeapSort.show(a);
     }
 }
