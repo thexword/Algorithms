@@ -66,7 +66,7 @@ public class Quick extends Sort {
         int i = lo + 1;
         int j = hi;
 
-        while (true) {
+        while (true) { // can not be: while (i < j), because the final value of j should <= i
             while (i < hi && less(a[i], v)) {
                 ++i;
             }
@@ -82,7 +82,7 @@ public class Quick extends Sort {
             exch(a, i, j);
         }
 
-        exch(a, lo, j);
+        exch(a, lo, j); // exchange the value at lo and j!
         return j;
     }
 }

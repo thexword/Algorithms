@@ -33,6 +33,5 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0; i < a.length; ++i) {
             Log.d(TAG, "select: " + i + ", key: " + QuickSelect.select(a, i));
         }
-        QuickSelect.show(a);
     }
 }
