@@ -61,7 +61,7 @@ public class Quick extends Sort {
     }
 
     public static int partition(Comparable[] a, int lo, int hi) {
-        Comparable v = a[lo]; //partitioning item
+        Comparable v = a[lo]; // partitioning item
         int i = lo;
         int j = hi + 1;
 
