@@ -19,7 +19,7 @@ public class QuickSelect extends Sort {
             return null;
         }
 
-//        shuffleArray(a);
+        shuffleArray(a);
 
         int lo = 0;
         int hi = N;
