@@ -1,5 +1,5 @@
 /**
- * Select the k largest item in the array
+ * Select the k smallest item in the array
  */
 
 package com.example.algorithms.algorithms.searching;
