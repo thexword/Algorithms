@@ -26,7 +26,6 @@ public class QuickSelect extends Sort {
 
         while (lo < hi) {
             int j = partition(a, lo, hi);
-            Log.d("algorithms_", "j: " + j);
 
             if (j == k) {
                 return a[k];
@@ -37,7 +36,21 @@ public class QuickSelect extends Sort {
             }
         }
 
-        return a[k]; // Can not return null!
+        return a[k]; //  lo == hi == k, Can not return null!
+
+//        while (lo <= hi) {
+//            int j = partition(a, lo, hi);
+//
+//            if (j == k) {
+//                return a[k];
+//            } else if (j > k) {
+//                hi = j - 1;
+//            } else {
+//                lo = j + 1;
+//            }
+//        }
+//
+//        return null; // Never reach here!
     }
 
     private static int partition(Comparable[] a, int lo, int hi) {
