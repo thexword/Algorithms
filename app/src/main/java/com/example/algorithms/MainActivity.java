@@ -22,17 +22,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Integer[] a = new Integer[] {
-                3, 5, 8, 6, 2, 1, 9, 6,
+                3, 5, 8, 6, 2, 1, 9, 6, 345, 1, 2
         };
 
-//        Log.d(TAG, "Test QuickSort");
-//        Quick.sort(a);
-//        Quick.show(a);
+        Log.d(TAG, "Test QuickSort");
+        Quick.sort(a);
+        Quick.show(a);
 
         Log.d(TAG, "Test QuickSelect");
         for (int i = 0; i < a.length; ++i) {
-            Integer key = (Integer) QuickSelect.select(a, i);
-            Log.d(TAG, "select: " + i + ", key: " + key);
+            Log.d(TAG, "select: " + i + ", key: " + QuickSelect.select(a, i));
         }
         QuickSelect.show(a);
     }

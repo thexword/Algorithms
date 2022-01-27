@@ -53,22 +53,18 @@ public class QuickSelect extends Sort {
 //        return null; // Never reach here!
     }
 
-    private static int partition(Comparable[] a, int lo, int hi) {
-        Comparable v = a[lo];
-        int i = lo;
-        int j = hi + 1;
+    public static int partition(Comparable[] a, int lo, int hi) {
+        Comparable v = a[lo]; // partitioning item
+        int i = lo + 1;
+        int j = hi;
 
         while (true) {
-            while (less(a[++i], v)) {
-                if (i == hi) {
-                    break;
-                }
+            while (i < hi && less(a[i], v)) {
+                ++i;
             }
 
-            while (less(v, a[--j])) {
-                if (j == lo) {
-                    break;
-                }
+            while (j > lo && less(v, a[j])) {
+                --j;
             }
 
             if (i >= j) {

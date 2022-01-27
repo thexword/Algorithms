@@ -16,6 +16,7 @@ public class Quick extends Sort {
 
     public static void sort(Comparable[] a) {
         shuffleArray(a); // eliminate dependence on input
+
         sort(a, 0, a.length - 1);
     }
 
@@ -62,20 +63,16 @@ public class Quick extends Sort {
 
     public static int partition(Comparable[] a, int lo, int hi) {
         Comparable v = a[lo]; // partitioning item
-        int i = lo;
-        int j = hi + 1;
+        int i = lo + 1;
+        int j = hi;
 
         while (true) {
-            while (less(a[++i], v)) {
-                if (i == hi) {
-                    break;
-                }
+            while (i < hi && less(a[i], v)) {
+                ++i;
             }
 
-            while (less(v, a[--j])) {
-                if (j == lo) {
-                    break;
-                }
+            while (j > lo && less(v, a[j])) {
+                --j;
             }
 
             if (i >= j) {
