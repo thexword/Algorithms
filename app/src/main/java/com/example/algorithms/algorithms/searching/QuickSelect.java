@@ -20,7 +20,21 @@ public class QuickSelect extends Sort {
         int lo = 0;
         int hi = N;
 
-        while (lo < hi) {
+//        while (lo < hi) {
+//            int j = Quick.partition(a, lo, hi);
+//
+//            if (j == k) {
+//                return a[k];
+//            } else if (j > k) {
+//                hi = j - 1;
+//            } else {
+//                lo = j + 1;
+//            }
+//        }
+//
+//        return a[k]; //  lo == hi == k, Can not return null!
+
+        while (lo <= hi) {
             int j = Quick.partition(a, lo, hi);
 
             if (j == k) {
@@ -32,20 +46,6 @@ public class QuickSelect extends Sort {
             }
         }
 
-        return a[k]; //  lo == hi == k, Can not return null!
-
-//        while (lo <= hi) {
-//            int j = partition(a, lo, hi);
-//
-//            if (j == k) {
-//                return a[k];
-//            } else if (j > k) {
-//                hi = j - 1;
-//            } else {
-//                lo = j + 1;
-//            }
-//        }
-//
-//        return null; // Never reach here!
+        return null; // Never reach here!
     }
 }
