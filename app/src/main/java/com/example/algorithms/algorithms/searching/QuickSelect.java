@@ -37,7 +37,7 @@ public class QuickSelect extends Sort {
             }
         }
 
-        return a[k]; // can not return null!
+        return a[k]; // Can not return null!
     }
 
     private static int partition(Comparable[] a, int lo, int hi) {
