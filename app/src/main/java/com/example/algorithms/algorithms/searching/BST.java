@@ -1,4 +1,10 @@
+/**
+ * Binary Search Tree
+ */
+
 package com.example.algorithms.algorithms.searching;
+
+import android.os.Build;
 
 public class BST<Key extends Comparable<Key>, Value> {
     private class Node {
@@ -153,6 +159,50 @@ public class BST<Key extends Comparable<Key>, Value> {
             return ceiling(node.right, key);
         } else {
             return node.value;
+        }
+    }
+
+    public Key select(int num) {
+        return select(root, num);
+    }
+
+    public Key select(Node node, int num) {
+        if (null == node) {
+            return null;
+        }
+
+        int sizeLeft = size(node.left);
+        if (sizeLeft > num) {
+            return select(node.left, num);
+        } else if (sizeLeft < num) {
+            return select(node.right, num - sizeLeft - 1);
+        } else {
+            return node.key;
+        }
+    }
+
+    public int rank(Key key) {
+        return rank(root, key);
+    }
+
+    public int rank(Node node, Key key) {
+        if (null == node) {
+            return -1;
+        }
+
+        int cmp = key.compareTo(node.key);
+
+        if (cmp > 0) {
+            int num = rank(node.right, key);
+            if (num != -1) {
+                return size(node.left) + 1 + num;
+            } else {
+                return -1;
+            }
+        } else if (cmp < 0) {
+            return rank(node.left, key);
+        } else {
+            return size(node.left);
         }
     }
 }

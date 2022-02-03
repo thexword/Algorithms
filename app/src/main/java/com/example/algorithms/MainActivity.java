@@ -45,5 +45,7 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "maximum: " + bst.maximum());
         Log.d(TAG, "floor: " + bst.floor("l"));
         Log.d(TAG, "ceiling: " + bst.ceiling("l"));
+        Log.d(TAG, "select: " + bst.select(1));
+        Log.d(TAG, "rank: " + bst.rank("c"));
     }
 }
