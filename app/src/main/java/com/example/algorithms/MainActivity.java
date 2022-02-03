@@ -36,10 +36,14 @@ public class MainActivity extends AppCompatActivity {
         }
 
         BST bst = new BST<Character, Integer>();
-        bst.put("a", 1);
+        bst.put("b", 1);
         bst.put("c", 4);
-        bst.put("b", 2);
+        bst.put("a", 2);
 
-        Log.d(TAG, "c: " + bst.get("c"));
+        Log.d(TAG, "get: " + bst.get("l"));
+        Log.d(TAG, "minimum: " + bst.minimum());
+        Log.d(TAG, "maximum: " + bst.maximum());
+        Log.d(TAG, "floor: " + bst.floor("l"));
+        Log.d(TAG, "ceiling: " + bst.ceiling("l"));
     }
 }
