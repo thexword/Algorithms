@@ -4,9 +4,11 @@
 
 package com.example.algorithms.algorithms.searching;
 
-import android.os.Build;
+import android.util.Log;
 
 public class BST<Key extends Comparable<Key>, Value> {
+    private static final String TAG = "Algorithms_BST";
+
     private class Node {
         Key key;
         Value value;
@@ -286,5 +288,19 @@ public class BST<Key extends Comparable<Key>, Value> {
 
         node.N = size(node.left) + size(node.right) + 1;
         return node;
+    }
+
+    public void print() {
+        print(root);
+    }
+
+    public void print(Node node) {
+        if (null == node) {
+            return;
+        }
+
+        print(node.left);
+        Log.d(TAG, "key: " + node.key + ", value: " + node.value);
+        print(node.right);
     }
 }

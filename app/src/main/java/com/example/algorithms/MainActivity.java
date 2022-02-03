@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         bst.put("b", 1);
         bst.put("c", 4);
         bst.put("a", 2);
+        bst.print();
 
         Log.d(TAG, "get: " + bst.get("l"));
         Log.d(TAG, "minimum: " + bst.minimum());
@@ -49,18 +50,12 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "rank: " + bst.rank("c"));
 
         bst.deleteMin();
-        for (int i = 0; i < bst.size(); ++i) {
-            Log.d(TAG, "i " + i + ": " + bst.select(i));
-        }
+        bst.print();
 
         bst.delete("k");
-        for (int i = 0; i < bst.size(); ++i) {
-            Log.d(TAG, "i " + i + ": " + bst.select(i));
-        }
+        bst.print();
 
         bst.delete("b");
-        for (int i = 0; i < bst.size(); ++i) {
-            Log.d(TAG, "i " + i + ": " + bst.select(i));
-        }
+        bst.print();
     }
 }
