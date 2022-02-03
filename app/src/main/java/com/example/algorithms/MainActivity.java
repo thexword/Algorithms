@@ -14,6 +14,8 @@ import com.example.algorithms.algorithms.sorting.Quick;
 import com.example.algorithms.algorithms.sorting.Selection;
 import com.example.algorithms.algorithms.sorting.Shell;
 
+import java.util.Iterator;
+
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "Algorithms_MainActivity";
 
@@ -49,13 +51,20 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "select: " + bst.select(1));
         Log.d(TAG, "rank: " + bst.rank("c"));
 
-        bst.deleteMin();
-        bst.print();
+//        bst.deleteMin();
+//        bst.print();
+//
+//        bst.delete("k");
+//        bst.print();
+//
+//        bst.delete("b");
+//        bst.print();
 
-        bst.delete("k");
-        bst.print();
+        Iterable<Character> chars = bst.keys();
+        Iterator<Character> iterator = chars.iterator();
 
-        bst.delete("b");
-        bst.print();
+        while (iterator.hasNext()) {
+            Log.d(TAG, "char: " + iterator.next());
+        }
     }
 }

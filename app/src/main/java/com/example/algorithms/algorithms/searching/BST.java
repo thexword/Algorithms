@@ -6,6 +6,10 @@ package com.example.algorithms.algorithms.searching;
 
 import android.util.Log;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Queue;
+
 public class BST<Key extends Comparable<Key>, Value> {
     private static final String TAG = "Algorithms_BST";
 
@@ -84,11 +88,11 @@ public class BST<Key extends Comparable<Key>, Value> {
         return node;
     }
 
-    public Value minimum() {
+    public Key minimum() {
         Node node = minimum(root);
 
         if (node != null) {
-            return node.value;
+            return node.key;
         } else {
             return null;
         }
@@ -106,11 +110,11 @@ public class BST<Key extends Comparable<Key>, Value> {
         }
     }
 
-    public Value maximum() {
+    public Key maximum() {
         Node node = maximum(root);
 
         if (node != null) {
-            return node.value;
+            return node.key;
         } else {
             return null;
         }
@@ -128,11 +132,17 @@ public class BST<Key extends Comparable<Key>, Value> {
         }
     }
 
-    public Value floor(Key key) {
-        return floor(root, key);
+    public Key floor(Key key) {
+        Node node = floor(root, key);
+
+        if (node != null) {
+            return node.key;
+        } else {
+            return null;
+        }
     }
 
-    public Value floor(Node node, Key key) {
+    public Node floor(Node node, Key key) {
         if (null == node || null == key) {
             return null;
         }
@@ -140,25 +150,31 @@ public class BST<Key extends Comparable<Key>, Value> {
         int cmp = key.compareTo(node.key);
 
         if (cmp > 0) {
-            Value value = floor(node.right, key);
+            Node temp = floor(node.right, key);
 
-            if (null == value) {
-                return node.value;
+            if (null == temp) {
+                return node;
             } else {
-                return value;
+                return temp;
             }
         } else if (cmp < 0) {
             return floor(node.left, key);
         } else {
-            return node.value;
+            return node;
         }
     }
 
-    public Value ceiling(Key key) {
-        return ceiling(root, key);
+    public Key ceiling(Key key) {
+        Node node = ceiling(root, key);
+
+        if (node != null) {
+            return node.key;
+        } else {
+            return null;
+        }
     }
 
-    public Value ceiling(Node node, Key key) {
+    public Node ceiling(Node node, Key key) {
         if (null == node || null == key) {
             return null;
         }
@@ -166,17 +182,17 @@ public class BST<Key extends Comparable<Key>, Value> {
         int cmp = key.compareTo(node.key);
 
         if (cmp < 0) {
-            Value value = ceiling(node.left, key);
+            Node temp = ceiling(node.left, key);
 
-            if (null == value) {
-                return node.value;
+            if (null == temp) {
+                return node;
             } else {
-                return value;
+                return temp;
             }
         } else if (cmp > 0) {
             return ceiling(node.right, key);
         } else {
-            return node.value;
+            return node;
         }
     }
 
@@ -302,5 +318,36 @@ public class BST<Key extends Comparable<Key>, Value> {
         print(node.left);
         Log.d(TAG, "key: " + node.key + ", value: " + node.value);
         print(node.right);
+    }
+
+    public Iterable<Key> keys() {
+        return keys(minimum(), maximum());
+    }
+
+    public Iterable<Key> keys(Key lo, Key hi) {
+        com.example.algorithms.datastructures.Queue<Key> queue = new com.example.algorithms.datastructures.Queue<>();
+        keys(root, queue, lo, hi);
+        return queue;
+    }
+
+    public void keys(Node node, com.example.algorithms.datastructures.Queue queue, Key lo, Key hi) {
+        if (null == node || null == queue || null == lo || null == hi) {
+            return;
+        }
+
+        int cmpLeft = lo.compareTo(node.key);
+        int cmpRight = hi.compareTo(node.key);
+
+        if (cmpLeft < 0) {
+            keys(node.left, queue, lo, hi);
+        }
+
+        if (cmpLeft <= 0 && cmpRight >= 0) {
+            queue.enqueue(node.key);
+        }
+
+        if (cmpRight > 0) {
+            keys(node.right, queue, lo, hi);
+        }
     }
 }
