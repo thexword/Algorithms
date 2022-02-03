@@ -28,4 +28,28 @@ public class BinarySearch {
 
         return -1;
     }
+
+    public static int rank1(int key, int[] a) {
+        if (null == a || a.length == 0) {
+            return -1;
+        }
+
+        int lo = 0;
+        int hi = a.length - 1;
+
+        while (lo <= hi) {
+            int mid = lo + (hi - lo) / 2;
+            int val = a[mid];
+
+            if (key > val) {
+                lo = mid + 1;
+            } else if (key < val) {
+                hi = mid - 1;
+            } else {
+                return mid;
+            }
+        }
+
+        return -1;
+    }
 }

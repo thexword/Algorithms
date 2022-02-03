@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.example.algorithms.algorithms.searching.BST;
 import com.example.algorithms.algorithms.searching.QuickSelect;
 import com.example.algorithms.algorithms.sorting.HeapSort;
 import com.example.algorithms.algorithms.sorting.Insertion;
@@ -33,5 +34,12 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0; i < a.length; ++i) {
             Log.d(TAG, "select: " + i + ", key: " + QuickSelect.select(a, i));
         }
+
+        BST bst = new BST<Character, Integer>();
+        bst.put("a", 1);
+        bst.put("c", 4);
+        bst.put("b", 2);
+
+        Log.d(TAG, "c: " + bst.get("c"));
     }
 }
