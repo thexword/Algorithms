@@ -47,5 +47,20 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "ceiling: " + bst.ceiling("l"));
         Log.d(TAG, "select: " + bst.select(1));
         Log.d(TAG, "rank: " + bst.rank("c"));
+
+        bst.deleteMin();
+        for (int i = 0; i < bst.size(); ++i) {
+            Log.d(TAG, "i " + i + ": " + bst.select(i));
+        }
+
+        bst.delete("k");
+        for (int i = 0; i < bst.size(); ++i) {
+            Log.d(TAG, "i " + i + ": " + bst.select(i));
+        }
+
+        bst.delete("b");
+        for (int i = 0; i < bst.size(); ++i) {
+            Log.d(TAG, "i " + i + ": " + bst.select(i));
+        }
     }
 }

@@ -56,6 +56,10 @@ public class BST<Key extends Comparable<Key>, Value> {
     }
 
     public void put(Key key, Value value) {
+        if (null == key || null == value) {
+            return;
+        }
+
         root = put(root, key, value);
     }
 
@@ -79,10 +83,16 @@ public class BST<Key extends Comparable<Key>, Value> {
     }
 
     public Value minimum() {
-        return minimum(root);
+        Node node = minimum(root);
+
+        if (node != null) {
+            return node.value;
+        } else {
+            return null;
+        }
     }
 
-    public Value minimum(Node node) {
+    public Node minimum(Node node) {
         if (null == node) {
             return null;
         }
@@ -90,15 +100,21 @@ public class BST<Key extends Comparable<Key>, Value> {
         if (node.left != null) {
             return minimum(node.left);
         } else {
-            return node.value;
+            return node;
         }
     }
 
     public Value maximum() {
-        return maximum(root);
+        Node node = maximum(root);
+
+        if (node != null) {
+            return node.value;
+        } else {
+            return null;
+        }
     }
 
-    public Value maximum(Node node) {
+    public Node maximum(Node node) {
         if (null == node) {
             return null;
         }
@@ -106,7 +122,7 @@ public class BST<Key extends Comparable<Key>, Value> {
         if (node.right != null) {
             return maximum(node.right);
         } else {
-            return node.value;
+            return node;
         }
     }
 
@@ -115,7 +131,7 @@ public class BST<Key extends Comparable<Key>, Value> {
     }
 
     public Value floor(Node node, Key key) {
-        if (null == node) {
+        if (null == node || null == key) {
             return null;
         }
 
@@ -141,7 +157,7 @@ public class BST<Key extends Comparable<Key>, Value> {
     }
 
     public Value ceiling(Node node, Key key) {
-        if (null == node) {
+        if (null == node || null == key) {
             return null;
         }
 
@@ -186,7 +202,7 @@ public class BST<Key extends Comparable<Key>, Value> {
     }
 
     public int rank(Node node, Key key) {
-        if (null == node) {
+        if (null == node || null == key) {
             return -1;
         }
 
@@ -204,5 +220,71 @@ public class BST<Key extends Comparable<Key>, Value> {
         } else {
             return size(node.left);
         }
+    }
+
+    public void deleteMin() {
+        root = deleteMin(root);
+    }
+
+    public Node deleteMin(Node node) {
+        if (null == node) {
+            return null;
+        }
+
+        if (node.left != null) {
+            node.left = deleteMin(node.left);
+        } else {
+            return node.right; // node.right may be null
+        }
+
+        node.N = size(node.left) + size(node.right) + 1;
+
+        return node;
+    }
+
+    public void delete(Key key) {
+        if (null == key) {
+            return;
+        }
+
+        root = delete(root, key);
+    }
+
+    public Node delete(Node node, Key key) {
+        if (null == node) {
+            return null;
+        }
+
+        int cmp = key.compareTo(node.key);
+
+        if (cmp > 0) {
+            Node right = delete(node.right, key);
+
+            if (null != right) {
+                node.right = right;
+            }
+        } else if (cmp < 0) {
+            Node left = delete(node.left, key);
+
+            if (null != left) {
+                node.left = left;
+            }
+        } else {
+            if (null == node.left) {
+                return node.right;
+            }
+
+            if (null == node.right) {
+                return node.left;
+            }
+
+            Node temp = node;
+            node = minimum(temp.right);
+            node.right = deleteMin(temp.right);
+            node.left = temp.left;
+        }
+
+        node.N = size(node.left) + size(node.right) + 1;
+        return node;
     }
 }
