@@ -1,5 +1,5 @@
 /**
- * Red-Black Binary Search Tree (2-3 Search Tree)
+ * Red-Black Binary Search Tree (2-3 Search Tree) (Balanced Search Tree)
  * (placeholder)
  */
 
