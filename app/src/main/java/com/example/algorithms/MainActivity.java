@@ -15,6 +15,7 @@ import com.example.algorithms.algorithms.sorting.Selection;
 import com.example.algorithms.algorithms.sorting.Shell;
 
 import java.util.Iterator;
+import java.util.TreeMap;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "Algorithms_MainActivity";
@@ -66,5 +67,7 @@ public class MainActivity extends AppCompatActivity {
         while (iterator.hasNext()) {
             Log.d(TAG, "char: " + iterator.next());
         }
+
+        Log.d(TAG, "%: " + (14 % -3));
     }
 }

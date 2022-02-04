@@ -6,10 +6,6 @@ package com.example.algorithms.algorithms.searching;
 
 import android.util.Log;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Queue;
-
 public class BST<Key extends Comparable<Key>, Value> {
     private static final String TAG = "Algorithms_BST";
 
