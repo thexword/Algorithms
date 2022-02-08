@@ -2,14 +2,12 @@ package com.example.algorithms.algorithms.graphs;
 
 import com.example.algorithms.datastructures.Stack;
 
-import java.util.ArrayList;
-
-public class DepthFirstPath {
+public class DepthFirstPaths {
     private boolean[] marked;
     private int[] edgeTo; // last vertex on known path to this vertex
     private int s; // source
 
-    public DepthFirstPath(Graph G, int s) {
+    public DepthFirstPaths(Graph G, int s) {
         marked = new boolean[G.V()];
         edgeTo = new int[G.V()];
         this.s = s;
@@ -42,7 +40,7 @@ public class DepthFirstPath {
             path.push(x);
         }
 
-        path.push(s);
+        path.push(s); // do not forget this
         return path;
     }
 }

@@ -5,7 +5,6 @@
 package com.example.algorithms.algorithms.graphs;
 
 import com.example.algorithms.datastructures.Queue;
-import com.example.algorithms.datastructures.Stack;
 
 public class BFS {
     private boolean[] marked;
@@ -16,15 +15,16 @@ public class BFS {
         bfs(G, s);
     }
 
-    private void bfs(Graph G, int v) {
-        marked[v] = true;
+    private void bfs(Graph G, int s) {
+        marked[s] = true;
         count++;
 
         Queue<Integer> vertex = new Queue<>();
-        vertex.enqueue(v);
+        vertex.enqueue(s);
 
         while (!vertex.isEmpty()) {
-            vertex.dequeue();
+            int v = vertex.dequeue(); // Get new v from the Queue
+
             for (Integer w: G.adj(v)) {
                 if (!marked[w]) {
                     vertex.enqueue(w);
