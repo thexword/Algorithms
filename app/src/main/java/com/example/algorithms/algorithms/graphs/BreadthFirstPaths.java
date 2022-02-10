@@ -1,5 +1,5 @@
 /**
- * Breadth First Path
+ * Breadth First Path (The shortest path)
  */
 
 package com.example.algorithms.algorithms.graphs;
