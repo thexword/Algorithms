@@ -1,13 +1,11 @@
 package com.example.algorithms.algorithms.graphs.MST;
 
-import android.widget.ArrayAdapter;
-
 import java.util.ArrayList;
 
 public class EdgeWeightedGraph {
     private int V;
     private int E;
-    private ArrayList<ArrayList<Edge>> adj; // adjacency lists for edges
+    private ArrayList<ArrayList<Edge>> adj; // adjacency lists
 
     public EdgeWeightedGraph(int V) {
         this.V = V;
@@ -29,7 +27,7 @@ public class EdgeWeightedGraph {
 
     public void addEdge(Edge e) {
         E++;
-        
+
         int v = e.either();
         int w = e.other(v);
 
