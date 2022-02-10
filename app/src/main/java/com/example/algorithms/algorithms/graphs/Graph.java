@@ -33,11 +33,11 @@ public class Graph {
     public void addEdge(int v, int w) {
         ArrayList<Integer> listV = adj.get(v);
         listV.add(w);
-        adj.add(v, listV); // Add w to v’s list.
+        adj.set(v, listV); // Add w to v’s list.
 
         ArrayList<Integer> listW = adj.get(w);
         listW.add(v);
-        adj.add(w, listW); // Add v to w’s list.
+        adj.set(w, listW); // Add v to w’s list.
 
         E++;
     }

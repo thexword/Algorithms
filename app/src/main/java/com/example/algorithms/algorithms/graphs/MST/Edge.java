@@ -3,28 +3,40 @@ package com.example.algorithms.algorithms.graphs.MST;
 public class Edge implements Comparable<Edge> {
     private int v;
     private int w;
-    private int weight;
+    private double weight;
 
-    public Edge(int v, int w, int weight) {
+    public Edge(int v, int w, double weight) {
         this.v = v;
         this.w = w;
         this.weight = weight;
     }
 
-    double weight() {
+    public double weight() {
         return this.weight;
     }
 
-    int either() { // either of this edge’s vertices
+    public int either() { // either of this edge’s vertices
         return v;
     }
 
-    int other() { // the other vertex
-        return w;
+    public int other(int i) { // the other vertex
+        if (i == v) {
+            return w;
+        } else if (i == w) {
+            return v;
+        } else {
+            throw new RuntimeException("Inconsistent edge");
+        }
     }
 
     @Override
     public int compareTo(Edge o) {
-        return this.weight - o.weight;
+        if (this.weight > o.weight) {
+            return 1;
+        } else if (this.weight < o.weight) {
+            return -1;
+        } else {
+            return 0;
+        }
     }
 }
