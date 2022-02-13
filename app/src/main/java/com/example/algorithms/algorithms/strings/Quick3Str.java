@@ -22,7 +22,8 @@ public class Quick3Str {
             return;
         }
 
-        int lt = lo, gt = hi;
+        int lt = lo;
+        int gt = hi;
         int v = charAt(a[lo], d);
         int i = lo + 1;
 
