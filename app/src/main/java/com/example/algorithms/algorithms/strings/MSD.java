@@ -20,7 +20,7 @@ public class MSD {
     public static void sort(String[] a) {
         int N = a.length;
         aux = new String[N];
-        sort(a, 0, N-1, 0);
+        sort(a, 0, N - 1, 0);
     }
 
     private static void sort(String[] a, int lo, int hi, int d) {
