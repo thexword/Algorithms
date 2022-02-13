@@ -150,7 +150,7 @@ public class TrieST<Value> {
         }
 
         char c = s.charAt(d);
-        return search(x.next[c], s, d+1, length);
+        return search(x.next[c], s, d + 1, length);
     }
 
     public void delete(String key) {
