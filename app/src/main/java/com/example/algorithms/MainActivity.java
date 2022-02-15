@@ -67,7 +67,5 @@ public class MainActivity extends AppCompatActivity {
         while (iterator.hasNext()) {
             Log.d(TAG, "char: " + iterator.next());
         }
-
-        Log.d(TAG, "%: " + (14 % -3));
     }
 }
