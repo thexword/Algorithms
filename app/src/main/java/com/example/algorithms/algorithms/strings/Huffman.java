@@ -31,8 +31,7 @@ public class Huffman {
         }
     }
 
-    private static Node buildTrie(int[] freq)
-    {
+    private static Node buildTrie(int[] freq) {
         // Initialize priority queue with singleton trees.
         PriorityQueue<Node> pq = new PriorityQueue<>();
 
